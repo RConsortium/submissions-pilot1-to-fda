@@ -23,8 +23,48 @@ The folder is organized as a demo eCTD package following ICH guidance.
 eCTD package: 
 
 - `m1/`: module 1 of the eCTD package
+
+```
+m1
+└── us
+    ├── cover-letter.pdf  # Submission cover letter
+    └── report-tlf.pdf    # Submission TLFs 
+```
+
+> Note: the TLF format in `report-tlf.pdf` is not consistent, 
+> because it reflects different table layouts in different organizations. 
+
 - `m5/`: module 5 of the eCTD package
 
+```
+m5
+└── datasets
+    └── rconsortiumpilot1
+        └── analysis
+            └── adam
+                ├── datasets              # ADaM datasets in XPT format
+                │   ├── adadas.xpt
+                │   ├── adae.xpt
+                │   ├── adcibc.xpt
+                │   ├── adlbc.xpt
+                │   ├── adlbcpv.xpt
+                │   ├── adlbh.xpt
+                │   ├── adlbhpv.xpt
+                │   ├── adlbhy.xpt
+                │   ├── adnpix.xpt
+                │   ├── adrg.pdf          # Analysis Data Reviewer's Guide
+                │   ├── adsl.xpt
+                │   ├── adtte.xpt
+                │   ├── advs.xpt
+                │   ├── define.xml        # ADaM data define file
+                │   └── define2-0-0.xsl
+                └── programs
+                    ├── r0pkg.txt         # Proprietary R package in txt format
+                    ├── tlf-demographic.r # analysis R code for TLFs. 
+                    ├── tlf-efficacy.r
+                    ├── tlf-kmplot.r
+                    └── tlf-primary.r
+```
 Other files: (**Do not include in eCTD package**)
 
 - `.gitignore`: git ignore file
