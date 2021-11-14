@@ -36,7 +36,8 @@ Content:
           person("Mike", "Stackhouse", role = c("aut")),
           person("Peikun", "Wu", role = c("aut")),
           person("Heng", "Wang", role = c("aut")),
-          person("Eli", "Miller", role = c("aut"))
+          person("Eli", "Miller", role = c("aut")),
+          person("Steven", "Haesendonckx", role = c("ctb"))
          )
   Description: R Consortium R Submission Pilot 1. 
   Depends: R (>= 3.6.0)
@@ -52,7 +53,10 @@ Content:
       glue,
       stringr,
       Tplyr,
-      pharmaRTF
+      pharmaRTF,
+      ggplot2,
+      cowplot,
+      visR
   Suggests: 
       devtools,
       testthat,
@@ -104,20 +108,28 @@ Content:
   
   ## Overview
   
-  The objective of the R Cconsortium R submission Pilot 1 Project is to 
+  The objective of the R Consortium R submission Pilot 1 Project is to 
   test the concept that a R-language based submission package can meet 
   the needs and the expectations of the FDA reviewers, 
   including assessing code review and analyses reproducibility. 
-  All submission materials and communications from this pilot is publicly available, 
+  All submission materials and communications from this pilot are publicly available, 
   with the aim of providing a working example for future R language based FDA submissions.
   This is a FDA-industry collaboration through the non-profit organization R consortium.
   
-  The [RConsortium/submissions-pilot1](https://github.com/RConsortium/submissions-pilot1) repo demonstrate an approach to organize internal developed R function and 
+  The [RConsortium/submissions-pilot1](https://github.com/RConsortium/submissions-pilot1) repo demonstrates an approach to organize internal developed R function and 
   table, listing, figure generation program using an R package. 
   
   The [RConsortium/submissions-pilot1-to-fda](https://github.com/RConsortium/submissions-pilot1-to-fda)
-  repo demonstrate the eCTD submission package based on the [RConsortium/submissions-pilot1](https://github.com/RConsortium/submissions-pilot1) repo.  
+  repo demonstrates the eCTD submission package based on the [RConsortium/submissions-pilot1](https://github.com/RConsortium/submissions-pilot1) repo.  
   
+  ## Running Environment 
+  
+  The project is developed and tested in the environment below:
+  
+  - OS: Ubuntu 20.04
+  - R version: R4.1.0
+  - Snapshot date: 2021-08-31
+  - Snapshot repository: https://mran.microsoft.com/snapshot/2021-08-31
   
   ## Folder Structure 
   
@@ -168,7 +180,7 @@ Content:
   #'
   #' This function handles the necessary data processing to handle the CDISC pilot
   #' primary endpoint analysis. The original source can be found
-  #' \link[here]{https://github.com/atorus-research/CDISC_pilot_replication/blob/3c8e9e3798c02be8d93bd8e8944d1e0d3f6519e2/programs/funcs.R#L401}
+  #' [here](https://github.com/atorus-research/CDISC_pilot_replication/blob/3c8e9e3798c02be8d93bd8e8944d1e0d3f6519e2/programs/funcs.R#L401)
   #'
   #' @importFrom tidyr pivot_longer
   #' @importFrom glue glue
@@ -523,7 +535,7 @@ Content:
   \description{
   This function handles the necessary data processing to handle the CDISC pilot
   primary endpoint analysis. The original source can be found
-  \link[here]{https://github.com/atorus-research/CDISC_pilot_replication/blob/3c8e9e3798c02be8d93bd8e8944d1e0d3f6519e2/programs/funcs.R#L401}
+  \href{https://github.com/atorus-research/CDISC_pilot_replication/blob/3c8e9e3798c02be8d93bd8e8944d1e0d3f6519e2/programs/funcs.R#L401}{here}
   }
 
 Package: pilot1wrappers
@@ -754,6 +766,11 @@ Content:
     \item Eli Miller
   }
   
+  Other contributors:
+  \itemize{
+    \item Steven Haesendonckx [contributor]
+  }
+  
   }
   \keyword{internal}
 
@@ -803,7 +820,7 @@ Content:
   }
   
   # Repository
-  message("Current oroject R package repository:")
+  message("Current project R package repository:")
   message(paste0("    ", getOption("repos")))
   message(" ")
   

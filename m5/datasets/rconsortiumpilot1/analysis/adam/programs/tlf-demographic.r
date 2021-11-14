@@ -6,17 +6,19 @@
 # path = list(adam = "path/to/esub/analysis/adam/datasets")    	# Modify path to the actual location
 # path$outtable = path$outgraph = "."                           # Output saved in current folder
 
+
 library(haven) 
 library(dplyr)
 library(rtables)
 library(pilot1wrappers)
 
 
-## ------------------------------------------------------------------------------------------------------------------
+## -----------------------------------------------------------------------------------------------------------------------------------
 adsl  <- read_xpt(file.path(path$adam, "adsl.xpt")) 
+adsl_labels <- var_labels(adsl)
 
 
-## ------------------------------------------------------------------------------------------------------------------
+## -----------------------------------------------------------------------------------------------------------------------------------
 adsl <- adsl %>%
   dplyr::filter(
     STUDYID == "CDISCPILOT01",
@@ -26,18 +28,19 @@ adsl <- adsl %>%
     TRT01P = factor(TRT01P, levels = c("Placebo", "Xanomeline Low Dose",  "Xanomeline High Dose")),
     AGEGR1 = factor(AGEGR1, levels = c("<65", "65-80", ">80")),
     RACE = factor(RACE, levels = c("WHITE", "BLACK OR AFRICAN AMERICAN", "AMERICAN INDIAN OR ALASKA NATIVE"))
-  )
+  ) 
 
 
-## ------------------------------------------------------------------------------------------------------------------
+## -----------------------------------------------------------------------------------------------------------------------------------
 # Table layout
+vars <- c("AGE", "AGEGR1", "RACE", "HEIGHTBL", "WEIGHTBL", "BMIBL", "MMSETOT")
 lyt <- basic_table(title = "Protocol: CDISCPILOT01",
                    subtitles = "Population: Intent-to-Treat",
-                   main_footer = "Program: tlf_demographic.Rmd" 
+                   main_footer = paste0("Program: tlf_demographic.Rmd \n" , Sys.time())
 ) %>%
   split_cols_by("TRT01P") %>%
   add_colcounts() %>%
-  analyze(c("AGE", "AGEGR1", "RACE", "HEIGHTBL", "WEIGHTBL", "BMIBL", "MMSETOT"), function(x, ...) {
+  analyze(vars, function(x, ...) {
     if (is.numeric(x)) {
       in_rows(
         "Mean (sd)" = c(mean(x), sd(x)),
@@ -50,7 +53,8 @@ lyt <- basic_table(title = "Protocol: CDISCPILOT01",
     } else {
       stop("type not supproted")
     }
-  })
+  },
+  var_labels = adsl_labels[vars])
 
 # Table build
 tbl <- build_table(lyt, adsl)
@@ -58,7 +62,7 @@ tbl <- build_table(lyt, adsl)
 tbl
 
 
-## ------------------------------------------------------------------------------------------------------------------
+## -----------------------------------------------------------------------------------------------------------------------------------
 # Output .out file 
 tbl %>%
   toString() %>%
