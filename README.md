@@ -16,6 +16,12 @@ repo demonstrates the eCTD submission package based on the [RConsortium/submissi
 The [RConsortium/submissions-pilot1](https://github.com/RConsortium/submissions-pilot1) repo demonstrates an approach to organize internal developed R function and 
 table, listing, figure generation program using an R package. 
 
+## Re-run analysis 
+
+To re-run analysis, you can follow the steps described in the 
+[ADRG document](https://github.com/RConsortium/submissions-pilot1-to-fda/blob/main/m5/datasets/rconsortiumpilot1/analysis/adam/datasets/adrg.pdf) based on the 
+[program saved in the module 5](https://github.com/RConsortium/submissions-pilot1-to-fda/tree/main/m5/datasets/rconsortiumpilot1/analysis/adam/programs). 
+
 ## Folder Structure 
 
 The folder is organized as a demo eCTD package following ICH guidance. 
@@ -69,12 +75,6 @@ Other files: (**Do not include in eCTD package**)
 
 - `.gitignore`: git ignore file
 - `README.md`: readme file for github repo
-
-## Re-run analysis 
-
-To re-run analysis, you can follow the steps described in the 
-[ADRG document](https://github.com/RConsortium/submissions-pilot1-to-fda/blob/main/m5/datasets/rconsortiumpilot1/analysis/adam/datasets/adrg.pdf) based on the 
-[program saved in the module 5](https://github.com/RConsortium/submissions-pilot1-to-fda/tree/main/m5/datasets/rconsortiumpilot1/analysis/adam/programs). 
 
 ## Questions 
 
