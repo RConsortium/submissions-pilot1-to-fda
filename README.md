@@ -76,6 +76,10 @@ Other files: (**Do not include in eCTD package**)
 - `.gitignore`: git ignore file
 - `README.md`: readme file for github repo
 
+## News
+
+- [Successful R-based Test Package Submitted to FDA](https://www.r-consortium.org/blog/2021/12/08/successful-r-based-test-package-submitted-to-fda)
+
 ## Questions 
 
 Report issues in <https://github.com/RConsortium/submissions-pilot1-to-fda/issues>
