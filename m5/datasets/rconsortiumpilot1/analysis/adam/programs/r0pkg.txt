@@ -29,7 +29,7 @@ Content:
   Package: pilot1wrappers
   Type: Package
   Title: R Consortium R Submission Pilot 1
-  Version: 0.1.0
+  Version: 0.1.1
   Authors@R: c(
           person("Yilong", "Zhang", email = "elong0527@gmail.com", role = c("aut", "cre")),
           person("Ning", "Leng", role = c("aut")),
@@ -98,6 +98,21 @@ Content:
   importFrom(tidyr,replace_na)
 
 Package: pilot1wrappers
+File: NEWS.md
+Format: text
+Content:
+  # pilot1wrappers 0.1.0
+  
+  * Address reviewer comments for `tlf-efficacy.Rmd` and `tlf-primary`.
+  * Change running R version to R4.1.2
+  
+  
+  # pilot1wrappers 0.1.0
+  
+  * Added a `NEWS.md` file to track changes to the package.
+  * Initial submission
+
+Package: pilot1wrappers
 File: README.md
 Format: text
 Content:
@@ -116,18 +131,24 @@ Content:
   with the aim of providing a working example for future R language based FDA submissions.
   This is a FDA-industry collaboration through the non-profit organization R consortium.
   
+  The [working group website](https://rconsortium.github.io/submissions-wg/).
+  
   The [RConsortium/submissions-pilot1](https://github.com/RConsortium/submissions-pilot1) repo demonstrates an approach to organize internal developed R function and 
   table, listing, figure generation program using an R package. 
   
   The [RConsortium/submissions-pilot1-to-fda](https://github.com/RConsortium/submissions-pilot1-to-fda)
   repo demonstrates the eCTD submission package based on the [RConsortium/submissions-pilot1](https://github.com/RConsortium/submissions-pilot1) repo.  
   
+  ## FDA Response 
+  
+  - Response to initial submission
+    + response letter <
   ## Running Environment 
   
   The project is developed and tested in the environment below:
   
   - OS: Ubuntu 20.04
-  - R version: R4.1.0
+  - R version: R4.1.2
   - Snapshot date: 2021-08-31
   - Snapshot repository: https://mran.microsoft.com/snapshot/2021-08-31
   
@@ -492,25 +513,6 @@ Content:
   }
 
 Package: pilot1wrappers
-File: R/zzz.R
-Format: text
-Content:
-  # Modify with care!
-  # The file is to load startup file automatically when the package is loaded.
-  
-  .onLoad <- function(libname, pkgname) {
-    startup <- system.file("startup.R", package = pkgname)
-  
-    if (file.exists(startup)) {
-      source(startup)
-    } else {
-      stop("Can not find", startup)
-    }
-  
-    invisible(startup)
-  }
-
-Package: pilot1wrappers
 File: man/efficacy_models.Rd
 Format: text
 Content:
@@ -791,7 +793,7 @@ File: inst/startup.R
 Format: text
 Content:
   # Project Level Setup 
-  R_version <- "4.1.0"																                  # set up project R version
+  R_version <- "4.1.2"																                  # set up project R version
   snapshot  <- "2021-08-31" 									                          # set up snapshot date
   repos     <- paste0("https://mran.microsoft.com/snapshot/", snapshot)  # set up repository based on snapshot
   

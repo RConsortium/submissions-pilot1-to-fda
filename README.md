@@ -16,6 +16,13 @@ repo demonstrates the eCTD submission package based on the [RConsortium/submissi
 The [RConsortium/submissions-pilot1](https://github.com/RConsortium/submissions-pilot1) repo demonstrates an approach to organize internal developed R function and 
 table, listing, figure generation program using an R package. 
 
+## FDA Response 
+
+- Initial submission
+  + version: [v0.1.0](https://github.com/RConsortium/submissions-pilot1-to-fda/releases/tag/v0.1.0) 
+  + [FDA statistical review and evaluation](https://github.com/RConsortium/submissions-pilot1/blob/main/vignettes/fda/fda-response-2021-11-22.pdf)
+  
+  
 ## Re-run analysis 
 
 To re-run analysis, you can follow the steps described in the 

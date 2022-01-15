@@ -6,20 +6,38 @@
 # path = list(adam = "path/to/esub/analysis/adam/datasets")    	# Modify path to the actual location
 # path$outtable = path$outgraph = "."                           # Output saved in current folder
 
-## ----setup, message=FALSE-----------------------------------------------------------------------------------------------------------
+## ------------------------------------------------------------------------------------------
+# Working directory requires write permission
+if(file.access(".", 2) != 0){
+  warning(
+    "The working directory '", normalizePath("."), "' is not writable.\n",
+    "Please change it to a location with write permission."
+  )
+}
+
+
+## ----setup, message=FALSE------------------------------------------------------------------
+# CRAN package, please using install.packages() to install
+library(tidyr)
 library(dplyr)
 library(Tplyr)
+library(huxtable)
 library(pharmaRTF)
+
+# Propitiatory Package, please refer appendix of ADRG to install 
 library(pilot1wrappers)
+
+
+## ------------------------------------------------------------------------------------------
 options(huxtable.add_colnames = FALSE)
 
 
-## -----------------------------------------------------------------------------------------------------------------------------------
+## ------------------------------------------------------------------------------------------
 adas  <- haven::read_xpt(file.path(path$adam, "adadas.xpt")) 
 adsl  <- haven::read_xpt(file.path(path$adam, "adsl.xpt")) 
 
 
-## -----------------------------------------------------------------------------------------------------------------------------------
+## ------------------------------------------------------------------------------------------
 adas <- adas %>%
   filter(
     EFFFL == "Y",
@@ -29,7 +47,7 @@ adas <- adas %>%
   )
 
 
-## -----------------------------------------------------------------------------------------------------------------------------------
+## ------------------------------------------------------------------------------------------
 t <- tplyr_table(adas, TRTP) %>% 
   set_pop_data(adsl) %>% 
   set_pop_treat_var(TRT01P) %>% 
@@ -55,17 +73,17 @@ sum_data <- t %>%
   nest_rowlabels() %>% 
   select(-starts_with('ord')) %>% 
   add_column_headers(
-     paste0("|Placebo\\line(N=**Placebo**)| Xanomeline Low Dose\\line(N=**Xanomeline Low Dose**) ", 
-           "| Xanomeline High Dose\\line(N=**Xanomeline High Dose**)"),
+     paste0("|Placebo\\line(N=**Placebo**)| Xanomeline High Dose\\line(N=**Xanomeline High Dose**) ", 
+           "| Xanomeline Low\\line Dose\\line(N=**Xanomeline Low Dose**)"),
      header_n(t)
   )
 
 
-## -----------------------------------------------------------------------------------------------------------------------------------
+## ------------------------------------------------------------------------------------------
 model_portion <- efficacy_models(adas, 'CHG', 24)
 
 
-## -----------------------------------------------------------------------------------------------------------------------------------
+## ------------------------------------------------------------------------------------------
 final <- bind_rows(sum_data, model_portion)
 
 ht <- huxtable::as_hux(final, add_colnames = FALSE) %>%
@@ -73,13 +91,13 @@ ht <- huxtable::as_hux(final, add_colnames = FALSE) %>%
   huxtable::set_align(1, 1:ncol(final), 'center') %>%
   huxtable::set_valign(1, 1:ncol(final), 'bottom') %>%
   huxtable::set_bottom_border(1, 1:ncol(final), 1) %>%
-  huxtable::set_width(1.2) %>%
+  huxtable::set_width(1.3) %>%
   huxtable::set_escape_contents(FALSE) %>%
-  huxtable::set_col_width(c(.5, 1/6, 1/6, 1/6))
+  huxtable::set_col_width(c(.4, .2, .2, .2))
 ht
 
 
-## -----------------------------------------------------------------------------------------------------------------------------------
+## ------------------------------------------------------------------------------------------
 doc <- rtf_doc(ht) %>% 
   set_font_size(10) %>%
   set_ignore_cell_padding(TRUE) %>%
@@ -137,6 +155,6 @@ doc <- rtf_doc(ht) %>%
 write_rtf(doc, file=file.path(path$output, 'tlf-primary.rtf'))
 
 
-## ---- out.width = "100%", out.height = "400px", echo = FALSE, fig.align = "center"--------------------------------------------------
+## ---- out.width = "100%", out.height = "400px", echo = FALSE, fig.align = "center"---------
 knitr::include_graphics("pdf/tlf-primary.pdf")
 
