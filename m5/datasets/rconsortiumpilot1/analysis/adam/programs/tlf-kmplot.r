@@ -103,6 +103,3 @@ print(KM)
 dev.off()
 
 
-## ---- out.width = "100%", out.height = "400px", echo = FALSE, fig.align = "center"---------
-knitr::include_graphics("pdf/tlf-kmplot.pdf")
-

@@ -175,6 +175,5 @@ tbl %>%
   write_rtf(file.path(path$output, "tlf-efficacy.rtf"))
 
 
-## ---- out.width = "100%", out.height = "400px", echo = FALSE, fig.align = "center"---------
-knitr::include_graphics("pdf/tlf-efficacy.pdf")
+
 

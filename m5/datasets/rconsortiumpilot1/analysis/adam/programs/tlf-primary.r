@@ -155,6 +155,3 @@ doc <- rtf_doc(ht) %>%
 write_rtf(doc, file=file.path(path$output, 'tlf-primary.rtf'))
 
 
-## ---- out.width = "100%", out.height = "400px", echo = FALSE, fig.align = "center"---------
-knitr::include_graphics("pdf/tlf-primary.pdf")
-
