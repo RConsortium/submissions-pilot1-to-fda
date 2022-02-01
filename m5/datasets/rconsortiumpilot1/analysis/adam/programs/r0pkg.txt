@@ -101,7 +101,7 @@ Package: pilot1wrappers
 File: NEWS.md
 Format: text
 Content:
-  # pilot1wrappers 0.1.0
+  # pilot1wrappers 0.1.1
   
   * Address reviewer comments for `tlf-efficacy.Rmd` and `tlf-primary`.
   * Change running R version to R4.1.2
@@ -141,8 +141,10 @@ Content:
   
   ## FDA Response 
   
-  - Response to initial submission
-    + response letter <
+  - Initial submission
+    + version: [v0.1.0](https://github.com/RConsortium/submissions-pilot1/releases/tag/v0.1.0) 
+    + [FDA statistical review and evaluation](https://github.com/RConsortium/submissions-pilot1/blob/main/vignettes/fda/fda-response-2021-11-22.pdf)
+    
   ## Running Environment 
   
   The project is developed and tested in the environment below:
@@ -158,6 +160,9 @@ Content:
   
   - [Marwick, B., Boettiger, C., & Mullen, L. (2018). Packaging data analytical work reproducibly using R (and friends). The American Statistician, 72(1), 80-88.](https://peerj.com/preprints/3192/)
   - [Wu, P., Palukuru, U. P., Luo, Y., Nepal, S., & Zhang, Y. (2021) Analysis and reporting in regulated clinical trial environment using R. PharmaSUG 2021](https://www.pharmasug.org/proceedings/2021/AD/PharmaSUG-2021-AD-079.pdf)
+  
+  More details related to organize a clinical project and submission package can be found in Chapter 9-14
+  of the  [R for Clinical Study Reports and Submission](https://r4csr.org/index.html) book.
   
   ### R function and Analysis Scripts 
   
@@ -214,8 +219,7 @@ Content:
   #' @export
   #'
   efficacy_models <- function(data, var=NULL, wk=NULL) {
-    
-    
+  
     # Need to set contrasts to work for Type III SS. See analysis results metadata for
     # table 14-3.01. Reference for R here: https://www.r-bloggers.com/anova-%E2%80%93-type-iiiiii-ss-explained/
     op <- options(contrasts = c("contr.sum","contr.poly"))
@@ -836,4 +840,4 @@ Content:
   message("\n")
   
   rm(home, R_version)
-  
+
