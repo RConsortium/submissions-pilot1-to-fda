@@ -4,10 +4,9 @@
 # The path variable needs to be defined by using example code below
 #
 # path = list(adam = "path/to/esub/analysis/adam/datasets")    	# Modify path to the actual location
-# path$outtable = path$outgraph = "."                           # Output saved in current folder
+# path$output = "."                                             # Output saved in current folder
 
-
-## ------------------------------------------------------------------------------------------
+## ------------------------------------------------------------------------------------------------------------------------------
 # Working directory requires write permission
 if(file.access(".", 2) != 0){
   warning(
@@ -17,7 +16,7 @@ if(file.access(".", 2) != 0){
 }
 
 
-## ----setup, message=FALSE------------------------------------------------------------------
+## ----setup, message=FALSE------------------------------------------------------------------------------------------------------
 knitr::opts_chunk$set(echo = TRUE)
 
 # CRAN package, please using install.packages() to install
@@ -31,12 +30,12 @@ library(visR)
 library(pilot1wrappers)
 
 
-## ------------------------------------------------------------------------------------------
+## ------------------------------------------------------------------------------------------------------------------------------
 adsl <- read_xpt(file.path(path$adam, "adsl.xpt"))
 adtte <- read_xpt(file.path(path$adam, "adtte.xpt")) 
 
 
-## ------------------------------------------------------------------------------------------
+## ------------------------------------------------------------------------------------------------------------------------------
 anl <- adsl %>% 
   dplyr::filter(
     SAFFL == "Y",
@@ -54,7 +53,7 @@ anl <- adsl %>%
   )
 
 
-## ------------------------------------------------------------------------------------------
+## ------------------------------------------------------------------------------------------------------------------------------
 # estimate survival
 surv_mod <- visR::estimate_KM(data = anl, strata = "TRT01A")
 
@@ -101,5 +100,3 @@ KM <- cowplot::plot_grid(
 
 print(KM)
 dev.off()
-
-

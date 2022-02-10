@@ -4,9 +4,9 @@
 # The path variable needs to be defined by using example code below
 #
 # path = list(adam = "path/to/esub/analysis/adam/datasets")    	# Modify path to the actual location
-# path$outtable = path$outgraph = "."                           # Output saved in current folder
+# path$output = "."                                             # Output saved in current folder
 
-## ------------------------------------------------------------------------------------------
+## ------------------------------------------------------------------------------------------------------------------------------
 # Working directory requires write permission
 if(file.access(".", 2) != 0){
   warning(
@@ -16,28 +16,27 @@ if(file.access(".", 2) != 0){
 }
 
 
-## ----setup, message=FALSE------------------------------------------------------------------
+## ----setup, message=FALSE------------------------------------------------------------------------------------------------------
 # CRAN package, please using install.packages() to install
 library(tidyr)
 library(dplyr)
 library(Tplyr)
-library(huxtable)
 library(pharmaRTF)
 
 # Propitiatory Package, please refer appendix of ADRG to install 
 library(pilot1wrappers)
 
 
-## ------------------------------------------------------------------------------------------
+## ------------------------------------------------------------------------------------------------------------------------------
 options(huxtable.add_colnames = FALSE)
 
 
-## ------------------------------------------------------------------------------------------
+## ------------------------------------------------------------------------------------------------------------------------------
 adas  <- haven::read_xpt(file.path(path$adam, "adadas.xpt")) 
 adsl  <- haven::read_xpt(file.path(path$adam, "adsl.xpt")) 
 
 
-## ------------------------------------------------------------------------------------------
+## ------------------------------------------------------------------------------------------------------------------------------
 adas <- adas %>%
   filter(
     EFFFL == "Y",
@@ -47,7 +46,7 @@ adas <- adas %>%
   )
 
 
-## ------------------------------------------------------------------------------------------
+## ------------------------------------------------------------------------------------------------------------------------------
 t <- tplyr_table(adas, TRTP) %>% 
   set_pop_data(adsl) %>% 
   set_pop_treat_var(TRT01P) %>% 
@@ -68,22 +67,29 @@ t <- tplyr_table(adas, TRTP) %>%
     group_desc(CHG,  where= AVISITN == 24, by = "Change from Baseline")
   )
   
+hdr <- adas %>% distinct(TRTP, TRTPN) %>% arrange(TRTPN) %>% pull(TRTP)
+hdr_ext <- sapply(hdr, FUN = function(x) paste0("|", x, "\\line(N=**", x, "**)"), USE.NAMES = FALSE)
+hdr_fin <- paste(hdr_ext, collapse = "")
+# Want the header to wrap properly in the RTF file
+hdr_fin <- stringr::str_replace_all(hdr_fin, "\\|Xanomeline ", "|Xanomeline\\\\line ")
+
 sum_data <- t %>% 
   build() %>% 
   nest_rowlabels() %>% 
-  select(-starts_with('ord')) %>% 
+  select(row_label, var1_Placebo, `var1_Xanomeline Low Dose`, `var1_Xanomeline High Dose`) %>% 
   add_column_headers(
-     paste0("|Placebo\\line(N=**Placebo**)| Xanomeline High Dose\\line(N=**Xanomeline High Dose**) ", 
-           "| Xanomeline Low\\line Dose\\line(N=**Xanomeline Low Dose**)"),
+
+     hdr_fin,
+
      header_n(t)
   )
 
 
-## ------------------------------------------------------------------------------------------
+## ------------------------------------------------------------------------------------------------------------------------------
 model_portion <- efficacy_models(adas, 'CHG', 24)
 
 
-## ------------------------------------------------------------------------------------------
+## ------------------------------------------------------------------------------------------------------------------------------
 final <- bind_rows(sum_data, model_portion)
 
 ht <- huxtable::as_hux(final, add_colnames = FALSE) %>%
@@ -94,10 +100,10 @@ ht <- huxtable::as_hux(final, add_colnames = FALSE) %>%
   huxtable::set_width(1.3) %>%
   huxtable::set_escape_contents(FALSE) %>%
   huxtable::set_col_width(c(.4, .2, .2, .2))
-ht
+cat(huxtable::to_screen(ht))
 
 
-## ------------------------------------------------------------------------------------------
+## ------------------------------------------------------------------------------------------------------------------------------
 doc <- rtf_doc(ht) %>% 
   set_font_size(10) %>%
   set_ignore_cell_padding(TRUE) %>%
