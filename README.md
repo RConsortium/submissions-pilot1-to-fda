@@ -20,7 +20,12 @@ table, listing, figure generation program using an R package.
 
 - Initial submission
   + version: [v0.1.0](https://github.com/RConsortium/submissions-pilot1-to-fda/releases/tag/v0.1.0) 
+  + [Cover letter](https://github.com/RConsortium/submissions-pilot1-to-fda/blob/main/m1/us/cover-letter.pdf)
   + [FDA statistical review and evaluation](https://github.com/RConsortium/submissions-pilot1/blob/main/vignettes/fda/fda-response-2021-11-22.pdf)
+
+- Updated submission
+  + version: [v0.1.1](https://github.com/RConsortium/submissions-pilot1-to-fda/releases/tag/v0.1.1)
+  + [Working group's response letter to FDA](https://github.com/RConsortium/submissions-pilot1-to-fda/blob/main/m1/us/response-to-fda-1.pdf)
   
   
 ## Re-run analysis 
