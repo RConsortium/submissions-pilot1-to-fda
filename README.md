@@ -16,12 +16,14 @@ repo demonstrates the eCTD submission package based on the [RConsortium/submissi
 The [RConsortium/submissions-pilot1](https://github.com/RConsortium/submissions-pilot1) repo demonstrates an approach to organize internal developed R function and 
 table, listing, figure generation program using an R package. 
 
+To learn more about other pilots, visit [the R consortium R submission working group website](https://rconsortium.github.io/submissions-wg/) and the [R consortium working group page](https://www.r-consortium.org/projects/isc-working-groups).
+
 ## FDA Response 
 
 - Initial submission
   + version: [v0.1.0](https://github.com/RConsortium/submissions-pilot1-to-fda/releases/tag/v0.1.0) 
   + [Cover letter](https://github.com/RConsortium/submissions-pilot1-to-fda/blob/main/m1/us/cover-letter.pdf)
-  + [FDA statistical review and evaluation](https://github.com/RConsortium/submissions-pilot1/blob/main/vignettes/fda/fda-response-2021-11-22.pdf)
+  + [FDA statistical review and evaluation response](https://github.com/RConsortium/submissions-pilot1/blob/main/vignettes/fda/fda-response-2021-11-22.pdf)
 
 - Updated submission
   + version: [v0.1.1](https://github.com/RConsortium/submissions-pilot1-to-fda/releases/tag/v0.1.1)
@@ -92,6 +94,7 @@ Other files: (**Do not include in eCTD package**)
 ## News
 
 - [Successful R-based Test Package Submitted to FDA](https://www.r-consortium.org/blog/2021/12/08/successful-r-based-test-package-submitted-to-fda)
+- [Update: Successful R-based Test Package Submitted to FDA](https://www.r-consortium.org/blog/2022/03/16/update-successful-r-based-test-package-submitted-to-fda)
 
 ## Questions 
 
