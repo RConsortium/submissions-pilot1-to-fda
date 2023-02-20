@@ -22,7 +22,7 @@ library(haven)
 library(dplyr)
 library(rtables)
 
-# Propitiatory Package, please refer appendix of ADRG to install 
+# Proprietary Package, please refer appendix of ADRG to install 
 library(pilot1wrappers)
 
 
