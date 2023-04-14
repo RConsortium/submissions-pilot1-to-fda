@@ -28,7 +28,7 @@ To learn more about other pilots, visit [the R consortium R submission working g
 - Updated submission
   + version: [v0.1.1](https://github.com/RConsortium/submissions-pilot1-to-fda/releases/tag/v0.1.1)
   + [Working group's response letter to FDA](https://github.com/RConsortium/submissions-pilot1-to-fda/blob/main/m1/us/response-to-fda-1.pdf)
-  + [Final statistical review and evaluation response from FDA](https://github.com/RConsortium/submissions-wg/blob/main/Documents/Summary_R_Pilot_Submission2.pdf)
+  + [Final statistical review and evaluation response from FDA](https://github.com/RConsortium/submissions-wg/blob/main/_Documents/Summary_R_Pilot_Submission2.pdf)
   
   
 ## Re-run analysis 
