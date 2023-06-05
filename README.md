@@ -55,18 +55,18 @@ m5
     └── rconsortiumpilot3
         └── analysis
             ├── adam
-            │   ├── adadas.xpt        # ADaM datasets in XPT format
+            │   ├── adadas.xpt                    # ADaM datasets in XPT format
             │   ├── adae.xpt
             │   ├── adlbc.xpt
             │   ├── adsl.xpt
             │   └── adtte.xpt
             ├── output
-            │   ├── tlf-demographic-pilot3.out # analysis R code for TLFs. 
+            │   ├── tlf-demographic-pilot3.out    # output files for TLFs. 
             │   ├── tlf-efficacy-pilot3.rtf
             │   ├── tlf-kmplot-pilot3.pdf
             │   └── tlf-primary-pilot3.rtf
             └── programs
-                ├── adadas.R
+                ├── adadas.R                      # analysis R code for TLFs.   
                 ├── adae.R
                 ├── adlbc.R
                 ├── adsl.R
