@@ -1,41 +1,33 @@
-> Do not includ `README.md` and `.gitignore` files into the final submission. 
+> Do not include `README.md` and `.gitignore` files into the final submission. 
 
 ## Overview
 
-The objective of the R Consortium R submission Pilot 1 Project is to 
-test the concept that a R-language based submission package can meet 
+The objective of the R Consortium R Submission Pilot 3 Project is to 
+test the concept that an R-language based submission package can meet 
 the needs and the expectations of the FDA reviewers, 
 including assessing code review and analyses reproducibility. 
 All submission materials and communications from this pilot are publicly available, 
-with the aim of providing a working example for future R language based FDA submissions.
-This is a FDA-industry collaboration through the non-profit organization R consortium.
+with the aim of providing a working example for future R-language based FDA submissions.
+This is an FDA-industry collaboration through the non-profit organisation R Consortium.
 
-The [RConsortium/submissions-pilot1-to-fda](https://github.com/RConsortium/submissions-pilot1-to-fda)
-repo demonstrates the eCTD submission package based on the [RConsortium/submissions-pilot1](https://github.com/RConsortium/submissions-pilot1) repo.  
+The [RConsortium/submissions-pilot3-adam-to-fda](https://github.com/RConsortium/submissions-pilot3-adam-to-fda)
+repo demonstrates the eCTD submission package based on the [RConsortium/submissions-pilot3-adam](https://github.com/RConsortium/submissions-pilot3-adam) repo.  
 
-The [RConsortium/submissions-pilot1](https://github.com/RConsortium/submissions-pilot1) repo demonstrates an approach to organize internal developed R function and 
-table, listing, figure generation program using an R package. 
+The [RConsortium/submissions-pilot3-adam](https://github.com/RConsortium/submissions-pilot3-adam) repo demonstrates an approach to organise an R-language based submission, including ADaMs, tables and figures. This is supported by internally-developed R functions, contained within an R package in the [RConsortium/submissions-pilot3-utilities](https://github.com/RConsortium/submissions-pilot3-utilities) repo.
 
-To learn more about other pilots, visit [the R consortium R submission working group website](https://rconsortium.github.io/submissions-wg/) and the [R consortium working group page](https://www.r-consortium.org/projects/isc-working-groups).
+To learn more about other pilots, visit the [R Consortium R Submission Working Group website](https://rconsortium.github.io/submissions-wg/) and the [R Consortium Working Groups webpage](https://www.r-consortium.org/all-projects/isc-working-groups).
 
 ## FDA Response 
 
 - Initial submission
-  + version: [v0.1.0](https://github.com/RConsortium/submissions-pilot1-to-fda/releases/tag/v0.1.0) 
-  + [Cover letter](https://github.com/RConsortium/submissions-pilot1-to-fda/blob/main/m1/us/cover-letter.pdf)
-  + [FDA statistical review and evaluation response](https://github.com/RConsortium/submissions-pilot1/blob/main/vignettes/fda/fda-response-2021-11-22.pdf)
-
-- Updated submission
-  + version: [v0.1.1](https://github.com/RConsortium/submissions-pilot1-to-fda/releases/tag/v0.1.1)
-  + [Working group's response letter to FDA](https://github.com/RConsortium/submissions-pilot1-to-fda/blob/main/m1/us/response-to-fda-1.pdf)
-  + [Final statistical review and evaluation response from FDA](https://github.com/RConsortium/submissions-wg/blob/main/Documents/Summary_R_Pilot_Submission2.pdf)
-  
+  + version: [v0.1.0] (**link TBC**)
+  + [Cover letter](https://github.com/RConsortium/submissions-pilot3-adam-to-fda/blob/main/m1/us/cover-letter.pdf) (**Draft version**)
   
 ## Re-run analysis 
 
 To re-run analysis, you can follow the steps described in the 
-[ADRG document](https://github.com/RConsortium/submissions-pilot1-to-fda/blob/main/m5/datasets/rconsortiumpilot1/analysis/adam/datasets/adrg.pdf) based on the 
-[program saved in the module 5](https://github.com/RConsortium/submissions-pilot1-to-fda/tree/main/m5/datasets/rconsortiumpilot1/analysis/adam/programs). 
+[ADRG] (**link TBC**) based on the 
+[programs saved in module 5](https://github.com/RConsortium/submissions-pilot3-adam-to-fda/tree/main/m5/datasets/rconsortiumpilot1/analysis/adam/programs). 
 
 ## Folder Structure 
 
@@ -60,31 +52,29 @@ m1
 ```
 m5
 └── datasets
-    └── rconsortiumpilot1
+    └── rconsortiumpilot3
         └── analysis
-            └── adam
-                ├── datasets              # ADaM datasets in XPT format
-                │   ├── adadas.xpt
-                │   ├── adae.xpt
-                │   ├── adcibc.xpt
-                │   ├── adlbc.xpt
-                │   ├── adlbcpv.xpt
-                │   ├── adlbh.xpt
-                │   ├── adlbhpv.xpt
-                │   ├── adlbhy.xpt
-                │   ├── adnpix.xpt
-                │   ├── adrg.pdf          # Analysis Data Reviewer's Guide
-                │   ├── adsl.xpt
-                │   ├── adtte.xpt
-                │   ├── advs.xpt
-                │   ├── define.xml        # ADaM data define file
-                │   └── define2-0-0.xsl
-                └── programs
-                    ├── r0pkg.txt         # Proprietary R package in txt format
-                    ├── tlf-demographic.r # analysis R code for TLFs. 
-                    ├── tlf-efficacy.r
-                    ├── tlf-kmplot.r
-                    └── tlf-primary.r
+            ├── adam
+            │   ├── adadas.xpt        # ADaM datasets in XPT format
+            │   ├── adae.xpt
+            │   ├── adlbc.xpt
+            │   ├── adsl.xpt
+            │   └── adtte.xpt
+            ├── output
+            │   ├── tlf-demographic-pilot3.out # analysis R code for TLFs. 
+            │   ├── tlf-efficacy-pilot3.rtf
+            │   ├── tlf-kmplot-pilot3.pdf
+            │   └── tlf-primary-pilot3.rtf
+            └── programs
+                ├── adadas.R
+                ├── adae.R
+                ├── adlbc.R
+                ├── adsl.R
+                ├── adtte.R
+                ├── tlf-demographic.R
+                ├── tlf-efficacy.R
+                ├── tlf-kmplot.R
+                └── tlf-primary.R
 ```
 Other files: (**Do not include in eCTD package**)
 
@@ -93,10 +83,6 @@ Other files: (**Do not include in eCTD package**)
 
 ## News
 
-- [Successful R-based Test Package Submitted to FDA](https://www.r-consortium.org/blog/2021/12/08/successful-r-based-test-package-submitted-to-fda)
-- [Update: Successful R-based Test Package Submitted to FDA](https://www.r-consortium.org/blog/2022/03/16/update-successful-r-based-test-package-submitted-to-fda)
-
 ## Questions 
 
-Report issues in <https://github.com/RConsortium/submissions-pilot1-to-fda/issues>
-
+Report issues in <https://github.com/RConsortium/submissions-pilot3-adam-to-fda/issues>.
