@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd /cloud/project/m5/datasets/rconsortiumpilot3
+cd ./m5/datasets/rconsortiumpilot3
 
 git clone https://github.com/RConsortium/submissions-pilot3-adam.git --branch main --single-branch ./submission-pilot3-adam --depth 1
 
