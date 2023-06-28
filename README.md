@@ -53,6 +53,30 @@ m1
 m5
 └── datasets
     └── rconsortiumpilot3
+        └── tabulations
+            ├── sdtm
+            │   ├── ae.xpt                      # SDTM datasets in XPT format
+            │   ├── cm.xpt
+            │   ├── dm.xpt
+            │   ├── ds.xpt
+            │   ├── ex.xpt
+            │   ├── lb.xpt
+            │   ├── mh.xpt
+            │   ├── qs.xpt
+            │   ├── relrec.xpt
+            │   ├── sc.xpt
+            │   ├── se.xpt
+            │   ├── suppae.xpt
+            │   ├── suppdm.xpt
+            │   ├── suppds.xpt
+            │   ├── supplb.xpt
+            │   ├── sv.xpt
+            │   ├── ta.xpt
+            │   ├── te.xpt
+            │   ├── ti.xpt
+            │   ├── ts.xpt
+            │   ├── tv.xpt
+            │   └── vs.xpt
         └── analysis
             ├── adam
             │   ├── adadas.xpt                    # ADaM datasets in XPT format
