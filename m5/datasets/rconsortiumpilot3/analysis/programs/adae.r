@@ -39,7 +39,7 @@ adsl <- convert_blanks_to_na(adsl)
 # Read in specifications from define
 #----------------------------------------------------------------------------------------
 ## placeholder for origin=predecessor, use metatool::build_from_derived()
-metacore <- spec_to_metacore("adam/TDF_ADaM - Pilot 3 Team updated.xlsx", where_sep_sheet = FALSE, quiet = T)
+metacore <- spec_to_metacore("adam/ADaM - Pilot 3.xlsx", where_sep_sheet = FALSE, quiet = T)
 adae_spec <- metacore %>% select_dataset("ADAE") # Get the specifications for the dataset we are currently building
 
 

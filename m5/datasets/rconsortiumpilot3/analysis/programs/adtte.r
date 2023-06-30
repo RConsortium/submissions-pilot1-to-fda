@@ -25,7 +25,7 @@ ds <- convert_blanks_to_na(read_xpt(file.path("submission/sdtm", "ds.xpt")))
 
 ## placeholder for origin=predecessor, use metatool::build_from_derived()
 
-metacore <- spec_to_metacore("adam/TDF_ADaM - Pilot 3 Team updated.xlsx", where_sep_sheet = FALSE)
+metacore <- spec_to_metacore("adam/ADaM - Pilot 3.xlsx", where_sep_sheet = FALSE)
 
 # Get the specifications for the dataset we are currently building
 
