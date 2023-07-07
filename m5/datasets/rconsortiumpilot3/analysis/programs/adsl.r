@@ -1,3 +1,15 @@
+# Note to Reviewer
+# To rerun the code below, please refer ADRG appendix.
+# After required package are installed.
+# The path variable needs to be defined by using example code below
+#
+# nolint start
+#' path <- list(
+#'   sdtm = "path/to/esub/tabulations/sdtm",   # Modify path to the sdtm location
+#'   adam = "path/to/esub/analysis/adam"       # Modify path to the adam location
+#' )
+# nolint end
+
 ###########################################################################
 #' developers : Steven Haesendonckx/Declan Hodges/Thomas Neitmann
 #' date: 09DEC2022
@@ -23,17 +35,17 @@ library(xportr)
 # https://pharmaverse.github.io/admiral/articles/admiral.html#handling-of-missing-values
 
 
-dm <- convert_blanks_to_na(read_xpt(file.path("submission", "sdtm", "dm.xpt")))
-ds <- convert_blanks_to_na(read_xpt(file.path("submission", "sdtm", "ds.xpt")))
-ex <- convert_blanks_to_na(read_xpt(file.path("submission", "sdtm", "ex.xpt")))
-qs <- convert_blanks_to_na(read_xpt(file.path("submission", "sdtm", "qs.xpt")))
-sv <- convert_blanks_to_na(read_xpt(file.path("submission", "sdtm", "sv.xpt")))
-vs <- convert_blanks_to_na(read_xpt(file.path("submission", "sdtm", "vs.xpt")))
-sc <- convert_blanks_to_na(read_xpt(file.path("submission", "sdtm", "sc.xpt")))
-mh <- convert_blanks_to_na(read_xpt(file.path("submission", "sdtm", "mh.xpt")))
+dm <- convert_blanks_to_na(read_xpt(file.path(path$sdtm, "dm.xpt")))
+ds <- convert_blanks_to_na(read_xpt(file.path(path$sdtm, "ds.xpt")))
+ex <- convert_blanks_to_na(read_xpt(file.path(path$sdtm, "ex.xpt")))
+qs <- convert_blanks_to_na(read_xpt(file.path(path$sdtm, "qs.xpt")))
+sv <- convert_blanks_to_na(read_xpt(file.path(path$sdtm, "sv.xpt")))
+vs <- convert_blanks_to_na(read_xpt(file.path(path$sdtm, "vs.xpt")))
+sc <- convert_blanks_to_na(read_xpt(file.path(path$sdtm, "sc.xpt")))
+mh <- convert_blanks_to_na(read_xpt(file.path(path$sdtm, "mh.xpt")))
 
 ## placeholder for origin=predecessor, use metatool::build_from_derived()
-metacore <- spec_to_metacore("adam/ADaM - Pilot 3.xlsx", where_sep_sheet = FALSE)
+metacore <- spec_to_metacore(file.path(path$adam, "ADaM - Pilot 3.xlsx"), where_sep_sheet = FALSE)
 # Get the specifications for the dataset we are currently building
 adsl_spec <- metacore %>%
   select_dataset("ADSL")
@@ -132,8 +144,6 @@ adsl00 <- dm %>%
   mutate(AVGDD = round_sas(CUMDOSE / TRTDURD, digits = 1))
 
 # Demographic grouping ----------------------------------------------------
-# distinct(adsl_prod[which(adsl_prod$SITEGR1 == "900"), c("SITEID", "SITEGR1")])
-
 adsl01 <- adsl00 %>%
   create_cat_var(adsl_spec, AGE, AGEGR1, AGEGR1N) %>%
   create_var_from_codelist(adsl_spec, RACE, RACEN) %>%
@@ -314,6 +324,6 @@ adsl07 %>%
   xportr_df_label(adsl_spec) %>% # Assigns dataset label from metacore specifications
   xportr_format(adsl_spec$var_spec %>%
     mutate_at(c("format"), ~ replace_na(., "")), "ADSL") %>%
-  xportr_write("submission/adam/adsl.xpt",
+  xportr_write(file.path(path$adam, "adsl.xpt"),
     label = "Subject-Level Analysis Dataset"
   )

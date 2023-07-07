@@ -4,8 +4,10 @@
 # The path variable needs to be defined by using example code below
 #
 # nolint start
-# path = list(adam = "path/to/esub/analysis/adam/datasets")    	# Modify path to the actual location
-# path$output = "."                                             # Output saved in current folder
+# path <- list(
+#   adam = "path/to/esub/analysis/adam",      # Modify path to the adam location
+#   output = "path/to/esub/analysis/output"   # Modify path to the output location
+# )
 # nolint end
 
 ## ------------------------------------------------------------------------------------------------------------------------------
@@ -30,8 +32,8 @@ library(pilot3)
 
 
 ## ------------------------------------------------------------------------------------------------------------------------------
-adsl <- read_xpt(file.path("submission/adam/", "adsl.xpt"))
-adlb <- read_xpt(file.path("submission/adam/", "adlbc.xpt"))
+adsl <- read_xpt(file.path(path$adam, "adsl.xpt"))
+adlb <- read_xpt(file.path(path$adam, "adlbc.xpt"))
 
 
 ## ------------------------------------------------------------------------------------------------------------------------------
@@ -184,4 +186,4 @@ tbl_3 <- apr0ancova3 %>%
 tbl <- list(tbl_1, tbl_2, tbl_3)
 tbl %>%
   rtf_encode() %>%
-  write_rtf(file.path("submission/output/", "tlf-efficacy-pilot3.rtf"))
+  write_rtf(file.path(path$output, "tlf-efficacy-pilot3.rtf"))

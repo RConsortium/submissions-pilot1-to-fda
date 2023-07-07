@@ -4,8 +4,10 @@
 # The path variable needs to be defined by using example code below
 #
 # nolint start
-# path = list(adam = "path/to/esub/analysis/adam/datasets")    	# Modify path to the actual location
-# path$output = "."                                             # Output saved in current folder
+# path <- list(
+#   adam = "path/to/esub/analysis/adam",      # Modify path to the adam location
+#   output = "path/to/esub/analysis/output"   # Modify path to the output location
+# )
 # nolint end
 
 ## ----setup, message=FALSE------------------------------------------------------------------------------------------------------
@@ -21,8 +23,8 @@ options(huxtable.add_colnames = FALSE)
 
 
 ## ------------------------------------------------------------------------------------------------------------------------------
-adas <- haven::read_xpt(file.path("submission/adam/", "adadas.xpt"))
-adsl <- haven::read_xpt(file.path("submission/adam/", "adsl.xpt"))
+adas <- haven::read_xpt(file.path(path$adam, "adadas.xpt"))
+adsl <- haven::read_xpt(file.path(path$adam, "adsl.xpt"))
 
 
 ## ------------------------------------------------------------------------------------------------------------------------------
@@ -148,4 +150,4 @@ doc <- rtf_doc(ht) %>%
   )
 
 # Write out the RTF
-write_rtf(doc, file = file.path("submission/output/", "tlf-primary-pilot3.rtf"))
+write_rtf(doc, file = file.path(path$output, "tlf-primary-pilot3.rtf"))

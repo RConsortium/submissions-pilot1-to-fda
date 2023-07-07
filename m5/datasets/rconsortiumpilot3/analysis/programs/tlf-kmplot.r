@@ -4,8 +4,10 @@
 # The path variable needs to be defined by using example code below
 #
 # nolint start
-# path = list(adam = "path/to/esub/analysis/adam/datasets")    	# Modify path to the actual location
-# path$output = "."                                             # Output saved in current folder
+# path <- list(
+#   adam = "path/to/esub/analysis/adam",      # Modify path to the adam location
+#   output = "path/to/esub/analysis/output"   # Modify path to the output location
+# )
 # nolint end
 
 ## ------------------------------------------------------------------------------------------------------------------------------
@@ -31,8 +33,8 @@ library(pilot3)
 
 
 ## ------------------------------------------------------------------------------------------------------------------------------
-adsl <- read_xpt(file.path("submission/adam/", "adsl.xpt"))
-adtte <- read_xpt(file.path("submission/adam/", "adtte.xpt"))
+adsl <- read_xpt(file.path(path$adam, "adsl.xpt"))
+adtte <- read_xpt(file.path(path$adam, "adtte.xpt"))
 
 
 ## ------------------------------------------------------------------------------------------------------------------------------
@@ -62,7 +64,7 @@ ggplot2::theme_set(theme_bw())
 
 pdf.options(reset = TRUE, onefile = FALSE)
 
-pdf(file.path("submission/output/", "tlf-kmplot-pilot3.pdf"))
+pdf(file.path(path$output, "tlf-kmplot-pilot3.pdf"))
 
 km <- visR::visr(surv_mod,
   y_label = "Probability of event\n",

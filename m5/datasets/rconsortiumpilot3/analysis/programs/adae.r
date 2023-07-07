@@ -1,3 +1,15 @@
+# Note to Reviewer
+# To rerun the code below, please refer ADRG appendix.
+# After required package are installed.
+# The path variable needs to be defined by using example code below
+#
+# nolint start
+# path <- list(
+#   sdtm = "path/to/esub/tabulations/sdtm",   # Modify path to the sdtm location
+#   adam = "path/to/esub/analysis/adam"       # Modify path to the adam location
+# )
+# nolint end
+
 ###########################################################################
 #' developers : Phani Tata/Joel Laxamana
 #' date: 07FEB2023
@@ -17,13 +29,13 @@ library(haven)
 
 # read in AE
 # ----------
-ae <- read_xpt(file.path("submission/sdtm", "ae.xpt"))
-suppae <- read_xpt(file.path("submission/sdtm", "suppae.xpt"))
+ae <- read_xpt(file.path(path$sdtm, "ae.xpt"))
+suppae <- read_xpt(file.path(path$sdtm, "suppae.xpt"))
 
 
 # read in ADSL
 # ------------
-adsl <- read_xpt(file.path("submission", "adam", "adsl.xpt"))
+adsl <- read_xpt(file.path(path$adam, "adsl.xpt"))
 
 
 # When SAS datasets are imported into R using haven::read_sas(), missing
@@ -39,7 +51,7 @@ adsl <- convert_blanks_to_na(adsl)
 # Read in specifications from define
 #----------------------------------------------------------------------------------------
 ## placeholder for origin=predecessor, use metatool::build_from_derived()
-metacore <- spec_to_metacore("adam/ADaM - Pilot 3.xlsx", where_sep_sheet = FALSE, quiet = T)
+metacore <- spec_to_metacore(file.path(path$adam, "ADaM - Pilot 3.xlsx"), where_sep_sheet = FALSE, quiet = TRUE)
 adae_spec <- metacore %>% select_dataset("ADAE") # Get the specifications for the dataset we are currently building
 
 
@@ -213,7 +225,7 @@ adae0 <- ae %>%
 # Check variables against define &
 # Assign dataset labels, var labels and formats
 #----------------------------------------------------------------------------------------
-ADAE <- adae0 %>%
+adae <- adae0 %>%
   drop_unspec_vars(adae_spec) %>% # Check all variables specified are present and no more
   check_ct_data(adae_spec, na_acceptable = TRUE) %>% # Checks all variables with CT only contain values within the CT
   order_cols(adae_spec) %>% # Orders the columns according to the spec
@@ -230,7 +242,7 @@ ADAE <- adae0 %>%
 # dataset generated here. This will make the sas.format comparisons
 # equal in diffdf(). See code below for work around.
 #----------------------------------------------------------------------------------------
-adae <- ADAE %>%
+adae <- adae %>%
   xportr_format(adae_spec$var_spec %>%
     mutate_at(c("format"), ~ replace_na(., "")), "ADAE")
 
@@ -238,6 +250,6 @@ adae <- ADAE %>%
 # Export to xpt
 #----------------------------------------------------------------------------------------
 adae %>%
-  xportr_write("submission/adam/adae.xpt",
+  xportr_write(file.path(path$adam, "adae.xpt"),
     label = "Adverse Events Analysis Dataset"
   )

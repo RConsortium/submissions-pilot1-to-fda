@@ -4,8 +4,10 @@
 # The path variable needs to be defined by using example code below
 #
 # nolint start
-# path = list(adam = "path/to/esub/analysis/adam/datasets")    	# Modify path to the actual location
-# path$output = "."                                             # Output saved in current folder
+# path <- list(
+#   adam = "path/to/esub/analysis/adam",      # Modify path to the adam location
+#   output = "path/to/esub/analysis/output"   # Modify path to the output location
+# )
 # nolint end
 
 ## ------------------------------------------------------------------------------------------------------------------------------
@@ -27,7 +29,7 @@ library(rtables)
 
 
 ## ------------------------------------------------------------------------------------------------------------------------------
-adsl <- read_xpt(file.path("submission/adam/", "adsl.xpt"))
+adsl <- read_xpt(file.path(path$adam, "adsl.xpt"))
 adsl_labels <- var_labels(adsl)
 
 
@@ -81,4 +83,4 @@ tbl
 # Output .out file
 tbl %>%
   toString() %>%
-  writeLines(con = file.path("submission/output/", "tlf-demographic-pilot3.out"))
+  writeLines(con = file.path(path$output, "tlf-demographic-pilot3.out"))

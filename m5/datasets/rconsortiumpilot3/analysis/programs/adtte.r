@@ -1,8 +1,20 @@
+# Note to Reviewer
+# To rerun the code below, please refer ADRG appendix.
+# After required package are installed.
+# The path variable needs to be defined by using example code below
+#
+# nolint start
+# path <- list(
+#   sdtm = "path/to/esub/tabulations/sdtm",   # Modify path to the sdtm location
+#   adam = "path/to/esub/analysis/adam"       # Modify path to the adam location
+# )
+# nolint end
+
 ###########################################################################
 #' developers : Steven Haesendonckx/Bingjun Wang/Ben Straub
 #' date: 13NOV2022
 #' modification History:
-#'
+#' assffff
 ###########################################################################
 
 # Set up ------------------------------------------------------------------
@@ -18,14 +30,14 @@ library(xportr)
 
 # read source -------------------------------------------------------------
 
-adsl <- read_xpt(file.path("submission", "adam", "adsl.xpt"))
-adae <- read_xpt(file.path("submission", "adam", "adae.xpt"))
-ds <- convert_blanks_to_na(read_xpt(file.path("submission/sdtm", "ds.xpt")))
+adsl <- read_xpt(file.path(path$adam, "adsl.xpt"))
+adae <- read_xpt(file.path(path$adam, "adae.xpt"))
+ds <- convert_blanks_to_na(read_xpt(file.path(path$sdtm, "ds.xpt")))
 
 
 ## placeholder for origin=predecessor, use metatool::build_from_derived()
 
-metacore <- spec_to_metacore("adam/ADaM - Pilot 3.xlsx", where_sep_sheet = FALSE)
+metacore <- spec_to_metacore(file.path(path$adam, "ADaM - Pilot 3.xlsx"), where_sep_sheet = FALSE)
 
 # Get the specifications for the dataset we are currently building
 
@@ -122,6 +134,6 @@ adtte <- adtte_pre %>%
   # no difference found by diffdf after commenting out xportr_length()
   xportr_format(adtte_spec$var_spec %>%
     mutate_at(c("format"), ~ replace_na(., "")), "ADTTE") %>%
-  xportr_write("submission/adam/adtte.xpt",
+  xportr_write(file.path(path$adam, "adtte.xpt"),
     label = "AE Time To 1st Derm. Event Analysis"
   )

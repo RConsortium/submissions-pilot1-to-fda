@@ -1,3 +1,15 @@
+# Note to Reviewer
+# To rerun the code below, please refer ADRG appendix.
+# After required package are installed.
+# The path variable needs to be defined by using example code below
+#
+# nolint start
+# path <- list(
+#   sdtm = "path/to/esub/tabulations/sdtm",   # Modify path to the sdtm location
+#   adam = "path/to/esub/analysis/adam"       # Modify path to the adam location
+# )
+# nolint end
+
 ###########################################################################
 #' developers : Steven Haesendonckx/Dadong Zhang/Nicole Jones
 #' date: 28NOV2022
@@ -25,17 +37,17 @@ library(stringr)
 
 # Read and convert NA for SDTM DATASET
 ## Laboratory Tests Results (LB)
-lb <- convert_blanks_to_na(read_xpt(file.path("submission/sdtm", "lb.xpt")))
+lb <- convert_blanks_to_na(read_xpt(file.path(path$sdtm, "lb.xpt")))
 ## Supplemental Qualifiers for LB (SUPPLB)
-supplb <- convert_blanks_to_na(read_xpt(file.path("submission/sdtm", "supplb.xpt")))
+supplb <- convert_blanks_to_na(read_xpt(file.path(path$sdtm, "supplb.xpt")))
 
 
 # Read and convert NA for ADaM DATASET
 ## Subject-Level Analysis
-adsl <- convert_blanks_to_na(read_xpt(file.path("submission", "adam", "adsl.xpt")))
+adsl <- convert_blanks_to_na(read_xpt(file.path(path$adam, "adsl.xpt")))
 
 # create labels
-metacore <- spec_to_metacore("adam/ADaM - Pilot 3.xlsx", where_sep_sheet = FALSE, quiet = T)
+metacore <- spec_to_metacore(file.path(path$adam, "ADaM - Pilot 3.xlsx"), where_sep_sheet = FALSE, quiet = TRUE)
 
 adlbc_spec <- metacore %>%
   select_dataset("ADLBC")
@@ -188,7 +200,7 @@ eot2 <- adlb06 %>%
 adlb07 <- adlb06 %>%
   filter(VISITNUM <= 12 & AVISITN > 0 & AVISITN != 99 & !grepl("UN", VISIT)) %>%
   group_by(USUBJID, PARAMCD) %>%
-  mutate(AENTMTFL_1 = ifelse(max(AVISITN, na.rm = T) == AVISITN, "Y", "")) %>%
+  mutate(AENTMTFL_1 = ifelse(max(AVISITN, na.rm = TRUE) == AVISITN, "Y", "")) %>%
   select(USUBJID, PARAMCD, AENTMTFL_1, LBSEQ) %>%
   full_join(adlb06, by = c("USUBJID", "PARAMCD", "LBSEQ"), multiple = "all") %>%
   mutate(AENTMTFL = ifelse(AENTMTFL == "Y", AENTMTFL, AENTMTFL_1)) %>%
@@ -230,7 +242,7 @@ adlb09 <- adlb08 %>%
   filter((VISITNUM >= 4 & VISITNUM <= 12) & !grepl("UN", VISIT)) %>%
   group_by(USUBJID, PARAMCD) %>%
   mutate(
-    maxALBTRVAL = ifelse(!is.na(ALBTRVAL), max(ALBTRVAL, na.rm = T), ALBTRVAL),
+    maxALBTRVAL = ifelse(!is.na(ALBTRVAL), max(ALBTRVAL, na.rm = TRUE), ALBTRVAL),
     ANL01FL = ifelse(maxALBTRVAL == ALBTRVAL, "Y", "")
   ) %>%
   arrange(desc(ANL01FL)) %>%
@@ -252,6 +264,6 @@ adlbc <- adlb09 %>%
   set_variable_labels(adlbc_spec) %>%
   xportr_format(adlbc_spec$var_spec %>%
     mutate_at(c("format"), ~ replace_na(., "")), "ADLBC") %>%
-  xportr_write("submission/adam/adlbc.xpt",
+  xportr_write(file.path(path$adam, "adlbc.xpt"),
     label = "Analysis Dataset Lab Blood Chemistry"
   )
