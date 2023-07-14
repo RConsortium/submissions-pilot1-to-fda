@@ -59,7 +59,6 @@ m5
         |   │   ├── define-v1-updated-html.xsl
         |   │   ├── define.pdf
         |   │   ├── define.xml
-        |   │   ├── pinnacle21-report-2023-05-19T10-33-03-557.xlsx
         |   │   ├── ae.xpt                      # SDTM datasets in XPT format
         |   │   ├── cm.xpt
         |   │   ├── dm.xpt
