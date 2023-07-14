@@ -55,6 +55,10 @@ m5
     └── rconsortiumpilot3
         ├── tabulations
         |   ├── sdtm
+        |   │   ├── blankcrf.pdf
+        |   │   ├── define-v1-updated-html.xsl
+        |   │   ├── define.pdf
+        |   │   ├── define.xml
         |   │   ├── ae.xpt                      # SDTM datasets in XPT format
         |   │   ├── cm.xpt
         |   │   ├── dm.xpt
