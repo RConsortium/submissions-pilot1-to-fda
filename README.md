@@ -83,30 +83,31 @@ m5
         |   │   └── vs.xpt
         └── analysis
             ├── adam
-            |   ├── ADaM - Pilot 3.xlsx
-            |   ├── define.xml
-            │   ├── adadas.xpt                    # ADaM datasets in XPT format
-            │   ├── adae.xpt
-            │   ├── adlbc.xpt
-            │   ├── adsl.xpt
-            │   ├── adtte.xpt
-            │   └── define2-0-0.xsl
-            ├── output
-            │   ├── tlf-demographic-pilot3.out    # output files for TLFs. 
-            │   ├── tlf-efficacy-pilot3.rtf
-            │   ├── tlf-kmplot-pilot3.pdf
-            │   └── tlf-primary-pilot3.rtf
-            └── programs
-                ├── adadas.R                      # analysis R code for TLFs.   
-                ├── adae.R
-                ├── adlbc.R
-                ├── adsl.R
-                ├── adtte.R
-                ├── tlf-demographic.R
-                ├── tlf-efficacy.R
-                ├── tlf-kmplot.R
-                ├── tlf-primary.R
-                └── renv.lock
+            |   ├── datasets
+            |   |   ├── ADaM - Pilot 3.xlsx
+            |   |   ├── define.xml
+            │   |   ├── adadas.xpt                    # ADaM datasets in XPT format
+            │   |   ├── adae.xpt
+            │   |   ├── adlbc.xpt
+            │   |   ├── adsl.xpt
+            │   |   ├── adtte.xpt
+            │   |   └── define2-0-0.xsl
+            │   └── programs
+            │       ├── adadas.R                      # analysis R code for TLFs.   
+            │       ├── adae.R
+            │       ├── adlbc.R
+            │       ├── adsl.R
+            │       ├── adtte.R
+            │       ├── tlf-demographic.R
+            │       ├── tlf-efficacy.R
+            │       ├── tlf-kmplot.R
+            │       ├── tlf-primary.R
+            │       └── renv.lock
+            └── output
+                ├── tlf-demographic-pilot3.out    # output files for TLFs. 
+                ├── tlf-efficacy-pilot3.rtf
+                ├── tlf-kmplot-pilot3.pdf
+                └── tlf-primary-pilot3.rtf
 ```
 Other files: (**Do not include in eCTD package**)
 
