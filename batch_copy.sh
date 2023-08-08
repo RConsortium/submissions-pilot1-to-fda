@@ -8,6 +8,5 @@ mv ./submission-pilot3-adam/submission/sdtm/*.xpt ./submission-pilot3-adam/submi
 mv ./submission-pilot3-adam/submission/adam/*.xpt ./submission-pilot3-adam/submission/adam/define* './submission-pilot3-adam/submission/adam/ADaM - Pilot 3.xlsx' ./analysis/adam/datasets
 mv ./submission-pilot3-adam/submission/programs/ad*.r ./submission-pilot3-adam/submission/programs/tlf*.r ./analysis/adam/programs
 mv ./submission-pilot3-adam/renv.lock /cloud/project
-mv ./submission-pilot3-adam/submission/output/* ./analysis/output
 
 rm -rf ./submission-pilot3-adam
