@@ -27,6 +27,7 @@ library(metacore)
 library(metatools)
 library(pilot3)
 library(xportr)
+library(janitor)
 
 # read source -------------------------------------------------------------
 # When SAS datasets are imported into R using read_sas(), missing
@@ -141,7 +142,7 @@ adsl00 <- dm %>%
   # dosing
   left_join(ex_dose, by = c("STUDYID", "USUBJID")) %>%
   select(-cnt) %>%
-  mutate(AVGDD = round_sas(CUMDOSE / TRTDURD, digits = 1))
+  mutate(AVGDD = round_half_up(as.numeric(CUMDOSE) / TRTDURD, digits = 1))
 
 # Demographic grouping ----------------------------------------------------
 adsl01 <- adsl00 %>%
@@ -234,11 +235,11 @@ adsl04 <- adsl03 %>%
 
 vs00 <- vs %>%
   filter((VSTESTCD == "HEIGHT" & VISITNUM == 1) | (VSTESTCD == "WEIGHT" & VISITNUM == 3)) %>%
-  mutate(AVAL = round_sas(VSSTRESN, digits = 1)) %>%
+  mutate(AVAL = round_half_up(VSSTRESN, digits = 1)) %>%
   select(STUDYID, USUBJID, VSTESTCD, AVAL) %>%
   pivot_wider(names_from = VSTESTCD, values_from = AVAL, names_glue = "{VSTESTCD}BL") %>%
   mutate(
-    BMIBL = round_sas(WEIGHTBL / (HEIGHTBL / 100)^2, digits = 1)
+    BMIBL = round_half_up(WEIGHTBL / (HEIGHTBL / 100)^2, digits = 1)
   ) %>%
   create_cat_var(adsl_spec, BMIBL, BMIBLGR1)
 
@@ -267,7 +268,7 @@ visnumen <- sv %>%
   group_by(STUDYID, USUBJID) %>%
   slice(n()) %>%
   ungroup() %>%
-  mutate(VISNUMEN = ifelse(round_sas(VISITNUM, digits = 0) == 13, 12, round_sas(VISITNUM, digits = 0))) %>%
+  mutate(VISNUMEN = ifelse(round_half_up(VISITNUM, digits = 0) == 13, 12, round_half_up(VISITNUM, digits = 0))) %>%
   select(STUDYID, USUBJID, VISNUMEN)
 
 disonsdt <- mh %>%
@@ -296,7 +297,7 @@ adsl06 <- adsl05 %>%
   # Feature requested: https://github.com/pharmaverse/admiral/issues/1875
   # Workaround: derive days first and then convert it to months
   mutate(
-    DURDIS = round_sas(DURDIS / (365.25 / 12), digits = 1)
+    DURDIS = round_half_up(DURDIS / (365.25 / 12), digits = 1)
   ) %>%
   create_cat_var(adsl_spec, DURDIS, DURDSGR1) %>%
   derive_vars_dt(

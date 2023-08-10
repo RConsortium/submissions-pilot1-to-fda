@@ -54,59 +54,55 @@ m5
 └── datasets
     └── rconsortiumpilot3
         ├── tabulations
-        |   ├── sdtm
-        |   │   ├── blankcrf.pdf
-        |   │   ├── define-v1-updated-html.xsl
-        |   │   ├── define.pdf
-        |   │   ├── define.xml
-        |   │   ├── ae.xpt                      # SDTM datasets in XPT format
-        |   │   ├── cm.xpt
-        |   │   ├── dm.xpt
-        |   │   ├── ds.xpt
-        |   │   ├── ex.xpt
-        |   │   ├── lb.xpt
-        |   │   ├── mh.xpt
-        |   │   ├── qs.xpt
-        |   │   ├── relrec.xpt
-        |   │   ├── sc.xpt
-        |   │   ├── se.xpt
-        |   │   ├── suppae.xpt
-        |   │   ├── suppdm.xpt
-        |   │   ├── suppds.xpt
-        |   │   ├── supplb.xpt
-        |   │   ├── sv.xpt
-        |   │   ├── ta.xpt
-        |   │   ├── te.xpt
-        |   │   ├── ti.xpt
-        |   │   ├── ts.xpt
-        |   │   ├── tv.xpt
-        |   │   └── vs.xpt
+        |   └── sdtm
+        |       ├── blankcrf.pdf
+        |       ├── define-v1-updated-html.xsl
+        |       ├── define.pdf
+        |       ├── define.xml
+        |       ├── ae.xpt                      # SDTM datasets in XPT format
+        |       ├── cm.xpt
+        |       ├── dm.xpt
+        |       ├── ds.xpt
+        |       ├── ex.xpt
+        |       ├── lb.xpt
+        |       ├── mh.xpt
+        |       ├── qs.xpt
+        |       ├── relrec.xpt
+        |       ├── sc.xpt
+        |       ├── se.xpt
+        |       ├── suppae.xpt
+        |       ├── suppdm.xpt
+        |       ├── suppds.xpt
+        |       ├── supplb.xpt
+        |       ├── sv.xpt
+        |       ├── ta.xpt
+        |       ├── te.xpt
+        |       ├── ti.xpt
+        |       ├── ts.xpt
+        |       ├── tv.xpt
+        |       └── vs.xpt
         └── analysis
-            ├── adam
-            |   ├── ADaM - Pilot 3.xlsx
-            |   ├── define.xml
-            │   ├── adadas.xpt                    # ADaM datasets in XPT format
-            │   ├── adae.xpt
-            │   ├── adlbc.xpt
-            │   ├── adsl.xpt
-            │   ├── adtte.xpt
-            │   └── define2-0-0.xsl
-            ├── output
-            │   ├── tlf-demographic-pilot3.out    # output files for TLFs. 
-            │   ├── tlf-efficacy-pilot3.rtf
-            │   ├── tlf-kmplot-pilot3.pdf
-            │   └── tlf-primary-pilot3.rtf
-            └── programs
-                ├── adadas.R                      # analysis R code for TLFs.   
-                ├── adae.R
-                ├── adlbc.R
-                ├── adsl.R
-                ├── adtte.R
-                ├── tlf-demographic.R
-                ├── tlf-efficacy.R
-                ├── tlf-kmplot.R
-                ├── tlf-primary.R
-                └── renv.lock
+            └── adam
+                ├── datasets
+                |   ├── ADaM - Pilot 3.xlsx
+                |   ├── define.xml
+                |   ├── adadas.xpt                    # ADaM datasets in XPT format
+                |   ├── adae.xpt
+                |   ├── adlbc.xpt
+                |   ├── adsl.xpt
+                |   ├── adtte.xpt
+                |   └── define2-0-0.xsl
+                └── programs
+                    ├── adadas.R                      # analysis R code for TLFs.   
+                    ├── adae.R
+                    ├── adlbc.R
+                    ├── adsl.R
+                    ├── adtte.R
+                    ├── tlf-demographic.R
+                    ├── tlf-efficacy.R
+                    ├── tlf-kmplot.R
+                    ├── tlf-primary.R
+                    └── renv.lock
 ```
 Other files: (**Do not include in eCTD package**)
 
