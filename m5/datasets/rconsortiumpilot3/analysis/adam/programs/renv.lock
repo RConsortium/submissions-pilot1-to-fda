@@ -16,6 +16,21 @@
       "Repository": "CRAN",
       "Hash": "68122010f01c4dcfbe58ce7112f2433d"
     },
+    "DT": {
+      "Package": "DT",
+      "Version": "0.18",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "crosstalk",
+        "htmltools",
+        "htmlwidgets",
+        "jsonlite",
+        "magrittr",
+        "promises"
+      ],
+      "Hash": "a7d6660c869d4f41f856504828af4645"
+    },
     "MASS": {
       "Package": "MASS",
       "Version": "7.3-58.3",
@@ -483,6 +498,19 @@
         "sys"
       ],
       "Hash": "93762d0a34d78e6a025efdbfb5c6bb41"
+    },
+    "crosstalk": {
+      "Package": "crosstalk",
+      "Version": "1.1.1",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "R6",
+        "htmltools",
+        "jsonlite",
+        "lazyeval"
+      ],
+      "Hash": "2b06f9e415a62b6762e4b8098d2aecbc"
     },
     "curl": {
       "Package": "curl",
@@ -1427,12 +1455,6 @@
         "vctrs"
       ],
       "Hash": "f2316df30902c81729ae9de95ad5a608"
-    },
-    "pilot3": {
-      "Package": "pilot3",
-      "Version": "0.0.1",
-      "Source": "GitHub",
-      "Repository": "RConsortium/submissions-pilot3-utilities"
     },
     "pkgbuild": {
       "Package": "pkgbuild",
