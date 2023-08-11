@@ -4,10 +4,10 @@
 # The path variable needs to be defined by using example code below
 #
 # nolint start
-#' path <- list(
-#'   sdtm = "path/to/esub/tabulations/sdtm",   # Modify path to the sdtm location
-#'   adam = "path/to/esub/analysis/adam"       # Modify path to the adam location
-#' )
+# path <- list(
+# sdtm = "path/to/esub/tabulations/sdtm", # Modify path to the sdtm location
+# adam = "path/to/esub/analysis/adam"     # Modify path to the adam location
+# )
 # nolint end
 
 ###########################################################################
@@ -34,7 +34,6 @@ library(janitor)
 # character values from SAS appear as "" characters in R, instead of appearing
 # as NA values. Further details can be obtained via the following link:
 # https://pharmaverse.github.io/admiral/articles/admiral.html#handling-of-missing-values
-
 
 dm <- convert_blanks_to_na(read_xpt(file.path(path$sdtm, "dm.xpt")))
 ds <- convert_blanks_to_na(read_xpt(file.path(path$sdtm, "ds.xpt")))

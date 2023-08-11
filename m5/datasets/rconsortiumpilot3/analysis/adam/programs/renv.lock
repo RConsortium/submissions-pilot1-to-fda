@@ -664,25 +664,6 @@
       ],
       "Hash": "057a7a9d41635ca4f9a27cbcdce6512e"
     },
-    "envsetup": {
-      "Package": "envsetup",
-      "Version": "0.0.1.9000",
-      "Source": "GitHub",
-      "RemoteType": "github",
-      "RemoteUsername": "pharmaverse",
-      "RemoteRepo": "envsetup",
-      "RemoteRef": "main",
-      "RemoteSha": "9ae5f2141c819c1eec8bd8f4ce01d7167cb9d657",
-      "RemoteHost": "api.github.com",
-      "Requirements": [
-        "config",
-        "fs",
-        "purrr",
-        "rlang",
-        "usethis"
-      ],
-      "Hash": "3b06e3490fcfca41a7e8caff7741078e"
-    },
     "estimability": {
       "Package": "estimability",
       "Version": "1.4.1",
@@ -1447,34 +1428,11 @@
       ],
       "Hash": "f2316df30902c81729ae9de95ad5a608"
     },
-    "pilot1wrappers": {
-      "Package": "pilot1wrappers",
-      "Version": "0.1.1",
+    "pilot3": {
+      "Package": "pilot3",
+      "Version": "0.0.1",
       "Source": "GitHub",
-      "RemoteType": "github",
-      "RemoteHost": "api.github.com",
-      "RemoteUsername": "RConsortium",
-      "RemoteRepo": "submissions-pilot1",
-      "RemoteRef": "main",
-      "RemoteSha": "694a207aca7e419513ffe16f6f5873526da1bdcb",
-      "Requirements": [
-        "R",
-        "Tplyr",
-        "cowplot",
-        "dplyr",
-        "emmeans",
-        "fs",
-        "ggplot2",
-        "glue",
-        "haven",
-        "pharmaRTF",
-        "r2rtf",
-        "rtables",
-        "stringr",
-        "tidyr",
-        "visR"
-      ],
-      "Hash": "5f45bb5b7e40deded8044673361babbf"
+      "Repository": "RConsortium/submissions-pilot3-utilities"
     },
     "pkgbuild": {
       "Package": "pkgbuild",

@@ -5,8 +5,9 @@
 #
 # nolint start
 # path <- list(
-#   adam = "path/to/esub/analysis/adam",      # Modify path to the adam location
-#   output = "path/to/esub/analysis/output"   # Modify path to the output location
+#  sdtm = "path/to/esub/tabulations/sdtm",   # Modify path to the sdtm location
+#  adam = "path/to/esub/analysis/adam",    # Modify path to the adam location
+#  output = "path/to/esub/.../output"    # Modify path to the output location
 # )
 # nolint end
 
@@ -20,7 +21,6 @@ library(pilot3)
 
 ## ------------------------------------------------------------------------------------------------------------------------------
 options(huxtable.add_colnames = FALSE)
-
 
 ## ------------------------------------------------------------------------------------------------------------------------------
 adas <- haven::read_xpt(file.path(path$adam, "adadas.xpt"))
