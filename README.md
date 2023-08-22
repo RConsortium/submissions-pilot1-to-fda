@@ -86,6 +86,7 @@ m5
                 ├── datasets
                 |   ├── ADaM - Pilot 3.xlsx
                 |   ├── define.xml
+                |   ├── adrg.pdf
                 |   ├── adadas.xpt                    # ADaM datasets in XPT format
                 |   ├── adae.xpt
                 |   ├── adlbc.xpt
