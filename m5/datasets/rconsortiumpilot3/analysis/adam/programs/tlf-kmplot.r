@@ -78,7 +78,7 @@ km <- km +
   ggplot2::geom_hline(yintercept = 0.5, linetype = "dashed")
 
 km <- km %>%
-  visR::add_risktable(group = "statlist")
+  visR::add_risktable(group = "statlist", rowgutter = 0.25)
 
 title <- cowplot::ggdraw() +
   cowplot::draw_label(
@@ -90,7 +90,7 @@ title <- cowplot::ggdraw() +
 
 caption <- cowplot::ggdraw() +
   cowplot::draw_label(
-    paste0("\nProgram: tlf_kmplot.R [", Sys.time(), "]"),
+    paste0("\nProgram: tlf-kmplot.r [", Sys.time(), "]"),
     fontfamily = "sans",
     size = 10
   )

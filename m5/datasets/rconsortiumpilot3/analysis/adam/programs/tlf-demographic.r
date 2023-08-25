@@ -52,7 +52,7 @@ vars <- c("AGE", "AGEGR1", "RACE", "HEIGHTBL", "WEIGHTBL", "BMIBL", "MMSETOT")
 lyt <- basic_table(
   title = "Protocol: CDISCPILOT01",
   subtitles = "Population: Intent-to-Treat",
-  main_footer = paste0("Program: tlf_demographic.R \n", Sys.time())
+  main_footer = paste0("Program: tlf-demographic.r \n", Sys.time())
 ) %>%
   split_cols_by("TRT01P") %>%
   add_colcounts() %>%

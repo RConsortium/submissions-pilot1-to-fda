@@ -9,10 +9,4 @@ mv ./submission-pilot3-adam/submission/adam/*.xpt ./submission-pilot3-adam/submi
 mv ./submission-pilot3-adam/submission/programs/ad*.r ./submission-pilot3-adam/submission/programs/tlf*.r ./analysis/adam/programs
 mv ./submission-pilot3-adam/renv.lock ./analysis/adam/programs/renv-lock.txt
 
-cd /cloud/project/m1/us
-
-git clone https://github.com/RConsortium/submissions-pilot3-adam.git --branch main --single-branch ./submission-pilot3-adam --depth 1
-
-mv ./submission-pilot3-adam/submission/programs/report-tlf-pilot3.pdf ./report-tlf-pilot3.pdf
-
 rm -rf ./submission-pilot3-adam
