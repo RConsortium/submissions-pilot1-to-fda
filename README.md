@@ -41,7 +41,7 @@ eCTD package:
 m1
 └── us
     ├── cover-letter.pdf  # Submission cover letter
-    └── report-tlf.pdf    # Submission TLFs 
+    └── report-tlf-pilot3.pdf    # Submission TLFs 
 ```
 
 > Note: the TLF format in `report-tlf.pdf` is not consistent, 
