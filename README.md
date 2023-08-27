@@ -1,4 +1,4 @@
-> Do not include `README.md` and `.gitignore` files into the final submission. 
+> Do not include `README.md`, `batch_copy.sh` and `.gitignore` files into the final submission. 
 
 ## Overview
 
@@ -108,6 +108,7 @@ m5
 Other files: (**Do not include in eCTD package**)
 
 - `.gitignore`: git ignore file
+- `batch_copy.sh`: All files required for the eCTD submission are copied from the [development repository](https://github.com/RConsortium/submissions-pilot3-adam) to the submission repository by a running this batch script, located in the repository's root directory.
 - `README.md`: readme file for github repo
 
 ## News
